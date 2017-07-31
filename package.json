@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rimraf dist &&  SET NODE_ENV=production & webpack",
     "dev": "SET NODE_ENV=development & node dev-server.js",
-    "linux": " NODE_ENV=development & node dev-server.js",
+    "linux": "NODE_ENV=development & node dev-server.js",
     "test": "webpack-dev-server",
     "http": "http-server -p 3000"
   },

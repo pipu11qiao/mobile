@@ -7,7 +7,8 @@ var ExtractPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // 区分开发和生产
-var env = process.env.NODE_ENV.trim();
+// var env = process.env.NODE_ENV.trim();
+var env = 'development';
 var PRODUCTION = env === 'production';
 var DEVELOPMENT = env === 'development';
 
