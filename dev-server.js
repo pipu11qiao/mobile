@@ -12,6 +12,7 @@ var server = new WebpackDevServer(compiler,{
   compress: true,
   filename: config.output.filename,
   publicPath: config.output.publicPath,
+  disableHostCheck: true,
   stats: {
     color: true
   }

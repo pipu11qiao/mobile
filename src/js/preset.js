@@ -135,6 +135,9 @@ let jQueryPreset = function ($) {
   $.fn.transformX = function (x) {
     return this.transform('translate3d(' + x +'px,0,0)')
   };
+  $.fn.transformY = function (y) {
+    return this.transform('translate3d(0,' + y +'px,0)')
+  };
 
   return $;
 };

@@ -33,18 +33,13 @@ plugins.push(new webpack.DefinePlugin({
 
 var cssLoaders = PRODUCTION
   ? ExtractPlugin.extract({
-    loader:
-      {
-        loader: 'css-loader',
-        options: {
-          modules: true,
-          localIdentName: '[hash:base64:10]'
-        }
-      }
+    fallback: 'style-loader',
+    use: 'css-loader'
   })
   : ['style-loader','css-loader?localIdentName=[path][name] --- [local]'];
 
 module.exports = {
+  devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项
   entry: entry,
   plugins: plugins,
   output: {
@@ -57,23 +52,23 @@ module.exports = {
     jquery: 'jQuery'
   },
   module:{
-    loaders:[
+    rules:[
       //es6
       {
         test: /\.js$/,
-        loader:'babel-loader',
+        use:'babel-loader',
         exclude: path.join(__dirname,'./node_modules')
       },
       // img
       {
         test: /\.(jpg|png|gif)$/,
-        loaders: 'url-loader?limit=10000&name=images/[hash:12].[ext]',
+        use: 'url-loader?limit=10000&name=images/[hash:12].[ext]',
         exclude: path.join(__dirname,'./node_modules')
       },
       // css
       {
         test: /\.css$/i,
-        loaders: cssLoaders,
+        use: cssLoaders,
         exclude: path.join(__dirname,'./node_modules')
       }
     ]
